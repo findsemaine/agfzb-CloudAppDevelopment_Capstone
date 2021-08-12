@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.timezone import now
 
 class CarMake(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.TextField()
     description = models.TextField()
     def __str__(self):
@@ -16,7 +17,7 @@ class CarModel(models.Model):
         (SUV, "SUV"), 
         (WAGON, "WAGON")
     ]
-
+    id = models.AutoField(primary_key=True)
     car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
     name = models.TextField()
     dealer_id = models.IntegerField()
